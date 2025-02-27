@@ -1,68 +1,75 @@
 import { benefits } from "../constants";
 import Heading from "./Heading";
 import Section from "./Section";
-import Arrow from "../assets/svg/Arrow";
-import { GradientLight } from "./design/Benefits";
+import { motion } from "framer-motion";
 import ClipPath from "../assets/svg/ClipPath";
 
 const Benefits = () => {
   return (
     <Section id="features">
       <div className="container relative z-2">
-        <Heading
-          className="md:max-w-md lg:max-w-2xl"
-          title="What Sets Us Apart "
-          text="Maximize your online potential with our customized and cutting-edgeweb development services."
-        />
+        {/* Heading Animation */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <Heading
+            className="md:max-w-md lg:max-w-2xl text-white"
+            title="What Sets Us Apart"
+            text="Maximize your online potential with our customized and cutting-edge web development services."
+          />
+        </motion.div>
 
-        <div className="flex flex-wrap gap-10 mb-10">
+        {/* 3D Grid Layout with Faster Hover Animation */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          style={{ perspective: "1000px" }} // Adding 3D Depth
+        >
           {benefits.map((item) => (
-            <div
-              className="block relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem]"
-              style={{
-                border: "1px solid white",
-                borderRadius: "1rem",     
-              }}
+            <motion.div
               key={item.id}
+              className="relative bg-n-8 p-6 border border-white rounded-xl shadow-lg transition-all duration-300"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{
+                rotateX: -12, // Faster tilt effect
+                y: -5, // Slight lift effect
+                scale: 1.05, // Slight enlargement for emphasis
+                boxShadow: "0px 20px 50px rgba(255, 255, 255, 0.4)", // Stronger glow
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 8 }}
+              style={{
+                transformOrigin: "center bottom", // Tilts from bottom
+                perspective: "1000px", // Ensures depth effect
+              }}
             >
-              <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none">
-                <h5 className="h5 mb-5">{item.title}</h5>
-                <p className="body-2 mb-6 text-n-3">{item.text}</p>
-                <div className="flex items-center mt-auto">
-                  <img
-                    src={item.iconUrl}
-                    width={48}
-                    height={48}
-                    alt={item.title}
-                  />
-                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider">
-                    Explore more
-                  </p>
-                  <Arrow />
-                </div>
-              </div>
-
-              {item.light && <GradientLight />}
-
-              <div
-                className="absolute inset-0.5 bg-n-8"
-                style={{ clipPath: "url(#benefits)" }}
+              {/* Floating Icon Effect */}
+              <motion.div
+                className="flex justify-center mb-4"
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
-                {/* <div className="absolute inset-0 opacity-0 transition-opacity hover:opacity-10">
-                  {item.imageUrl && (
-                    <img
-                      src={item.imageUrl}
-                      width={380}
-                      height={362}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-                </div> */}
-              </div>
+                <motion.img
+                  src={item.iconUrl}
+                  width={64}
+                  height={64}
+                  alt={item.title}
+                  className="w-16 h-16"
+                  whileHover={{ scale: 1.15 }} // More noticeable hover pop
+                />
+              </motion.div>
+
+              {/* Title */}
+              <h5 className="text-lg font-semibold text-white text-center mb-3">
+                {item.title}
+              </h5>
+
+              {/* Description */}
+              <p className="text-sm text-gray-300 text-center">{item.text}</p>
 
               <ClipPath />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -71,3 +78,4 @@ const Benefits = () => {
 };
 
 export default Benefits;
+

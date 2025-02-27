@@ -1,3 +1,4 @@
+
 import {
   benefitIcon1,
   benefitIcon2,
@@ -40,8 +41,7 @@ import {
   four,
   five,
   six,
-  photo2
-  
+  photo2,
 } from "../assets";
 
 export const navigation = [
@@ -50,7 +50,6 @@ export const navigation = [
     title: "Portfolio",
     url: "https://www.instagram.com/codezaic",
   },
-
 ];
 
 export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
@@ -59,11 +58,7 @@ export const notificationImages = [notification4, notification3, notification2];
 
 export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
 
-export const brainwaveServices = [
-  "Prototyping",
-  "Wireframing",
-  "Landing Page",
-];
+export const brainwaveServices = ["Prototyping", "Wireframing", "Landing Page"];
 
 export const brainwaveServicesIcons = [
   recording03,
@@ -115,7 +110,7 @@ export const collabText =
 export const collabContent = [
   {
     id: "0",
-    title: "Scalable Enterprise Solutionsn",
+    title: "Scalable Enterprise Solutions",
     text: "Grow your business with our digital solutions.",
   },
   {
@@ -234,7 +229,6 @@ export const benefits = [
     text: "Tailored web designs to fit your business needs perfectly.",
     backgroundUrl: "./src/assets/benefits/card-1.svg",
     iconUrl: one,
- 
   },
   {
     id: "1",
@@ -248,14 +242,14 @@ export const benefits = [
     title: "Expert Team",
     text: "Driven by an Expert Team Committed to Excellence and Innovation.",
     backgroundUrl: "./src/assets/benefits/card-3.svg",
-    iconUrl:three,
+    iconUrl: three,
   },
   {
     id: "3",
     title: "Ongoing Support",
     text: "Continuous Support to Keep Your Business Running Smoothly.",
     backgroundUrl: "./src/assets/benefits/card-4.svg",
-    iconUrl: four,  
+    iconUrl: four,
   },
   {
     id: "4",
@@ -263,7 +257,6 @@ export const benefits = [
     text: "Lightning-Fast Performance for a Smooth User Experience.",
     backgroundUrl: "./src/assets/benefits/card-5.svg",
     iconUrl: five,
-
   },
   {
     id: "5",
@@ -275,7 +268,6 @@ export const benefits = [
 ];
 
 export const socials = [
- 
   {
     id: "1",
     title: "Twitter",
